@@ -14,8 +14,8 @@
   box-sizing: border-box;
 }
 
-body {
-}
+/* body {
+} */
 
 .cc-container {
   position: absolute;
@@ -38,14 +38,12 @@ body {
   padding: 8px;
   display: flex;
   align-items: center;
-  width: 15px;
 }
 
 .code-line {
   padding: 8px;
   margin: 5px;
   white-space: pre;
-  background: purple;
   border-radius: 25px;
   color: #fff;
 }
@@ -75,25 +73,25 @@ body {
 }
 
 .raspberry {
-    background(var(--raspberry));
+    background: var(--raspberry);
 } 
 
 .green {
-    background(var(--green));
+    background: var(--green);
 } 
 
 .violet {
-    background(var(--violet));
+    background: var(--violet);
 } 
 
 .blue {
-    background(var(--blue));
+    background: var(--blue);
 } 
 
 .white {
-    background(var(--white));
+    background: var(--white);
 } 
 
 .black {
-    background(var(--black));
+    background: var(--black);
 } 
