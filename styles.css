@@ -1,0 +1,75 @@
+:root {
+  --raspberry: #ea047e;
+  --green: #7dce13;
+  --violet: #c47aff;
+  --blue: #47b5ff;
+  --white: #f9f9f9;
+  --black: #06283d;
+  --bg-editor: #06283d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+}
+
+.cc-container {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 80%;
+}
+
+.code-container {
+  display: flex;
+  flex-direction: row;
+  font-family: monospace;
+  background-color: var(--bg-editor);
+  padding: 5px;
+  color: #fff;
+}
+
+.line-number {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  width: 15px;
+}
+
+.code-line {
+  padding: 8px;
+  margin: 5px;
+  white-space: pre;
+  background: purple;
+  border-radius: 25px;
+  color: #fff;
+}
+
+.w-0 {
+  width: 0%;
+}
+
+.w-1 {
+  width: 10%;
+}
+
+.w-2 {
+  width: 20%;
+}
+
+.w-3 {
+  width: 30%;
+}
+
+.w-4 {
+  width: 40%;
+}
+
+.w-5 {
+  width: 50%;
+}
