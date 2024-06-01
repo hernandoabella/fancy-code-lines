@@ -1,9 +1,19 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
     <main>
-      <div>Hola</div>
+      <div>
+        <div>
+          <div className="p-5 border">1</div>
+        </div>
+        <div>
+          <div className="rounded-lg bg-red-600"></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
     </main>
   );
 }
