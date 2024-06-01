@@ -3,8 +3,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import html2canvas from "html2canvas";
 import { RiBrushFill, RiDownload2Fill } from "react-icons/ri";
-import { FaMagic } from "react-icons/fa"; // Importa el icono de varita mágica
-import { motion } from "framer-motion"; // Importa framer-motion
+import { FaMagic } from "react-icons/fa"; 
+import { motion } from "framer-motion"; 
 import Header from "@/app/components/Header";
 
 const Home = () => {
@@ -113,7 +113,7 @@ const Home = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
-              className="md:w-full"
+              className="md:w-1/2"
             >
               <textarea
                 className="h-40 p-4 border text-black mb-4 w-full rounded-lg shadow-lg"
