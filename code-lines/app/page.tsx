@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import React, { useState, useEffect, useRef } from "react";
 import html2canvas from "html2canvas";
@@ -11,9 +11,8 @@ const Home = () => {
   const [editorBg, setEditorBg] = useState("bg-gray-800");
   const editorRef = useRef<HTMLDivElement>(null);
 
-  // Función para procesar el código ingresado y convertirlo en líneas fancy
+  // Function to process the entered code and convert it to fancy lines
   const processCode = () => {
-    // Dividir el código por líneas
     const lines = inputCode.split("\n");
     const colors = [
       "bg-blue-500",
@@ -33,17 +32,11 @@ const Home = () => {
       "bg-white",
     ];
 
-    // Procesar cada línea en palabras y caracteres especiales
     const processedLines = lines.map((line, lineIndex) => {
       const words = line.match(/\w+|[^\w\s]/g) || [];
       return words.map((word, wordIndex) => {
         const color = colors[(lineIndex + wordIndex) % colors.length];
-        const widthClasses = [
-          "w-96", // Long width
-          "w-64", // Medium width
-          "w-48", // Short width
-          "w-32", // Very short width
-        ];
+        const widthClasses = ["w-96", "w-64", "w-48", "w-32", "w-28", "w-24", "w-20", "w-16", "w-14"];
         const randomWidthClass =
           widthClasses[Math.floor(Math.random() * widthClasses.length)];
         return (
@@ -55,29 +48,31 @@ const Home = () => {
       });
     });
 
-    // Actualizar el estado con las líneas de código procesadas
     setCodeLines(processedLines);
   };
 
-  // Función para alternar el color de fondo del editor
+  // Function to toggle the background color of the editor
   const toggleEditorBg = () => {
     const newBg = editorBg === "bg-gray-800" ? "bg-white" : "bg-gray-800";
     setEditorBg(newBg);
     localStorage.setItem("editorBg", newBg);
   };
 
-  // Función para descargar el editor como imagen
+  // Function to download the editor content as an image
   const downloadEditorAsImage = async () => {
     if (editorRef.current) {
+      // Temporarily remove overflow-x-auto to avoid horizontal scrolling in the downloaded image
+      editorRef.current.classList.remove("overflow-x-auto");
       const canvas = await html2canvas(editorRef.current);
       const link = document.createElement("a");
       link.href = canvas.toDataURL("image/png");
       link.download = "code-editor.png";
       link.click();
+      // Add back overflow-x-auto after downloading the image
+      editorRef.current.classList.add("overflow-x-auto");
     }
   };
 
-  // Ejecutar la función processCode al montar el componente
   useEffect(() => {
     processCode();
     const storedBg = localStorage.getItem("editorBg");
@@ -88,11 +83,11 @@ const Home = () => {
 
   return (
     <div className="flex justify-center items-center h-screen w-full">
-      <div className="container mx-auto p x-10">
+      <div className="container mx-auto px-10">
         <div className="gap-10">
           <div>
             <textarea
-              className="h-40 p-4 border mb-4 w-full"
+              className="h-40 p-4 border mb-4 w-full rounded-lg"
               value={inputCode}
               onChange={(e) => setInputCode(e.target.value)}
               placeholder="Insert your code here..."
