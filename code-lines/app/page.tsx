@@ -2,8 +2,10 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import html2canvas from "html2canvas";
-import { RiPlayFill, RiBrushFill, RiDownload2Fill } from "react-icons/ri";
-import Header from "@/app/components/Header"
+import { RiBrushFill, RiDownload2Fill } from "react-icons/ri";
+import { FaMagic } from "react-icons/fa"; // Importa el icono de varita mágica
+import { motion } from "framer-motion"; // Importa framer-motion
+import Header from "@/app/components/Header";
 
 const Home = () => {
   const defaultCode = "Hello World\nHow are you?\ni'm fine";
@@ -16,20 +18,14 @@ const Home = () => {
   const processCode = () => {
     const lines = inputCode.split("\n");
     const colors = [
-      "bg-blue-500",
-      "bg-red-500",
-      "bg-green-500",
-      "bg-yellow-500",
-      "bg-purple-500",
-      "bg-indigo-500",
-      "bg-pink-500",
-      "bg-blue-600",
-      "bg-red-600",
-      "bg-green-600",
-      "bg-yellow-600",
-      "bg-purple-600",
-      "bg-indigo-600",
-      "bg-pink-600",
+      "bg-white",
+      "bg-gradient-to-l from-blue-400 to-blue-500",
+      "bg-gradient-to-l from-red-400 to-red-500",
+      "bg-gradient-to-l from-green-400 to-green-500",
+      "bg-gradient-to-l from-yellow-400 to-yellow-500",
+      "bg-gradient-to-l from-purple-400 to-purple-500",
+      "bg-gradient-to-l from-indigo-400 to-indigo-500",
+      "bg-gradient-to-l from-pink-400 to-pink-500",
       "bg-white",
     ];
 
@@ -53,7 +49,7 @@ const Home = () => {
         return (
           <div
             key={wordIndex}
-            className={` p-1 rounded-lg ${color} ${randomWidthClass} gradient-border`}
+            className={`p-1 rounded-lg ${color} ${randomWidthClass} gradient-border`}
           ></div>
         );
       });
@@ -106,16 +102,21 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className="md:h-screen">
       <div>
         <Header />
       </div>
-      <div className="flex justify-center items-center h-screen w-full">
+      <div className="flex justify-center items-center pt-20 w-full">
         <div className="container mx-auto px-10">
-          <div className="gap-10 flex">
-            <div className="w-1/2">
+          <div className="gap-10 md:flex">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              className="md:w-full"
+            >
               <textarea
-                className="h-40 p-4 border mb-4 w-full rounded-lg shadow-lg"
+                className="h-40 p-4 border text-black mb-4 w-full rounded-lg shadow-lg"
                 value={inputCode}
                 onChange={(e) => setInputCode(e.target.value)}
                 placeholder="Insert your code here..."
@@ -125,7 +126,7 @@ const Home = () => {
                   className="flex items-center bg-slate-800 text-white px-4 py-2 rounded-md mb-4 mr-2"
                   onClick={processCode}
                 >
-                  <RiPlayFill className="mr-2" />
+                  <FaMagic className="mr-2" />
                   <span>Fancy</span>
                 </button>
                 <button
@@ -143,10 +144,14 @@ const Home = () => {
                   <span>Download</span>
                 </button>
               </div>
-            </div>
-            <div
+            </motion.div>
+
+            <motion.div
               ref={editorRef}
-              className={`whitespace-pre p-4 rounded-lg ${editorBg} overflow-x-auto max-h-96 overflow-y-auto`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              className={`whitespace-pre w-full h-60  p-4 rounded-lg ${editorBg} overflow-x-auto max-h-96 overflow-y-auto`}
             >
               {codeLines.map((line, lineIndex) => (
                 <div key={lineIndex} className="flex items-center">
@@ -156,7 +161,7 @@ const Home = () => {
                   <div className="flex gap-5 py-2">{line}</div>
                 </div>
               ))}
-            </div>
+            </motion.div>
           </div>
           <footer className="py-2">by Hernando Abella</footer>
         </div>
