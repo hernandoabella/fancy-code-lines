@@ -11,13 +11,12 @@ const Header = () => {
       <div className="text-center pt-10 md:pt-20 mx-auto px-10">
         <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-slate-200 sm:text-3xl md:text-5xl">
           <span className="block xl:inline">
-            <span className="mb-1 block">Create</span>
+            <span className="mb-1">Create </span>
             <span className="bg-gradient-to-r from-indigo-400 to-pink-600 bg-clip-text text-transparent">
-              Cute Code Lines
+              Cute
             </span>
           </span>
           <div className="mt-2">
-            with{" "}
             <span className="relative mt-3 whitespace-nowrap text-indigo-700">
               <svg
                 aria-hidden="true"
