@@ -8,12 +8,12 @@ const Header = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <div className="text-center pt-10 md:pt-20">
-        <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-slate-200 sm:text-5xl md:text-6xl">
+      <div className="text-center pt-10 md:pt-20 mx-auto px-10">
+        <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-slate-200 sm:text-3xl md:text-5xl">
           <span className="block xl:inline">
             <span className="mb-1 block">Create</span>
             <span className="bg-gradient-to-r from-indigo-400 to-pink-600 bg-clip-text text-transparent">
-              Fancy Code Lines
+              Cute Code Lines
             </span>
           </span>
           <div className="mt-2">
@@ -32,8 +32,8 @@ const Header = () => {
           </div>
         </h1>
         <p className="mx-auto mt-3 max-w-xl text-lg text-gray-500 dark:text-slate-400 sm:mt-5 md:mt-5">
-          Transform your code into visually appealing lines with our
-          easy-to-use application
+          Transform your code into visually appealing lines with our easy-to-use
+          application
         </p>
       </div>
     </motion.div>
