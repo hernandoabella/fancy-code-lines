@@ -146,7 +146,7 @@ const Home = () => {
             </div>
             <div
               ref={editorRef}
-              className={`whitespace-pre w-1/2 p-4 rounded-lg ${editorBg} overflow-x-auto max-h-96 overflow-y-auto`}
+              className={`whitespace-pre p-4 rounded-lg ${editorBg} overflow-x-auto max-h-96 overflow-y-auto`}
             >
               {codeLines.map((line, lineIndex) => (
                 <div key={lineIndex} className="flex items-center">
