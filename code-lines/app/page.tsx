@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import html2canvas from "html2canvas";
+import { RiPlayFill, RiBrushFill, RiDownload2Fill } from "react-icons/ri";
 
 const Home = () => {
   const defaultCode = "Hello World";
@@ -87,45 +88,49 @@ const Home = () => {
 
   return (
     <div className="flex justify-center items-center h-screen w-full">
-      <div className="container mx-auto p-4">
-        <div className="flex gap-10">
+      <div className="container mx-auto p x-10">
+        <div className="gap-10">
           <div>
             <textarea
               className="h-40 p-4 border mb-4 w-full"
               value={inputCode}
               onChange={(e) => setInputCode(e.target.value)}
-              placeholder="Ingresa tu código aquí..."
+              placeholder="Insert your code here..."
             ></textarea>
-            <br />
-            <button
-              className="bg-blue-500  px-4 py-2 rounded-md mb-4 mr-2"
-              onClick={processCode}
-            >
-              Convert to fancy lines
-            </button>
-            <button
-              className="bg-green-500 px-4 py-2 rounded-md mb-4 mr-2"
-              onClick={toggleEditorBg}
-            >
-              Toggle Background
-            </button>
-            <button
-              className="bg-purple-500  px-4 py-2 rounded-md mb-4"
-              onClick={downloadEditorAsImage}
-            >
-              Download as Image
-            </button>
+            <div className="flex">
+              <button
+                className="flex items-center bg-slate-800 text-white px-4 py-2 rounded-md mb-4 mr-2"
+                onClick={processCode}
+              >
+                <RiPlayFill className="mr-2" />
+                <span>Convert to fancy lines</span>
+              </button>
+              <button
+                className="flex items-center bg-slate-800 text-white px-4 py-2 rounded-md mb-4 mr-2"
+                onClick={toggleEditorBg}
+              >
+                <RiBrushFill className="mr-2" />
+                <span>Toggle Background</span>
+              </button>
+              <button
+                className="flex items-center bg-slate-800 text-white px-4 py-2 rounded-md mb-4"
+                onClick={downloadEditorAsImage}
+              >
+                <RiDownload2Fill className="mr-2" />
+                <span>Download as Image</span>
+              </button>
+            </div>
           </div>
           <div
             ref={editorRef}
-            className={`w-1/2 whitespace-pre p-4 rounded-lg ${editorBg} overflow-x-auto`}
+            className={`whitespace-pre p-4 rounded-lg ${editorBg} overflow-x-auto`}
           >
             {codeLines.map((line, lineIndex) => (
               <div key={lineIndex} className="flex items-center">
                 <div className="line-number text-gray-400 pr-4">
                   {lineIndex + 1}
                 </div>
-                <div className="flex gap-3 py-2">{line}</div>
+                <div className="flex gap-5 py-2">{line}</div>
               </div>
             ))}
           </div>
