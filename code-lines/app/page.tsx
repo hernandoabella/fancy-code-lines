@@ -42,7 +42,7 @@ const Home = () => {
         return (
           <div
             key={wordIndex}
-            className={`inline-block p-1 rounded-lg ${color} ${randomWidthClass}`}
+            className={`inline-block p-1 rounded-lg ${color} ${randomWidthClass} gradient-border`}
           ></div>
         );
       });
@@ -87,7 +87,7 @@ const Home = () => {
         <div className="gap-10">
           <div>
             <textarea
-              className="h-40 p-4 border mb-4 w-full rounded-lg"
+              className="h-40 p-4 border mb-4 w-full rounded-lg shadow-lg"
               value={inputCode}
               onChange={(e) => setInputCode(e.target.value)}
               placeholder="Insert your code here..."
