@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import html2canvas from "html2canvas";
 import { RiPlayFill, RiBrushFill, RiDownload2Fill } from "react-icons/ri";
+import Header from "@/app/components/Header"
 
 const Home = () => {
   const defaultCode = "Hello World\nHow are you?\ni'm fine";
@@ -107,12 +108,12 @@ const Home = () => {
   return (
     <div>
       <div>
-        <h2>fancy-codelines</h2>
+        <Header />
       </div>
       <div className="flex justify-center items-center h-screen w-full">
         <div className="container mx-auto px-10">
           <div className="gap-10 flex">
-            <div>
+            <div className="w-1/2">
               <textarea
                 className="h-40 p-4 border mb-4 w-full rounded-lg shadow-lg"
                 value={inputCode}
@@ -145,7 +146,7 @@ const Home = () => {
             </div>
             <div
               ref={editorRef}
-              className={`whitespace-pre p-4 rounded-lg ${editorBg} overflow-x-auto max-h-96 overflow-y-auto`}
+              className={`whitespace-pre w-1/2 p-4 rounded-lg ${editorBg} overflow-x-auto max-h-96 overflow-y-auto`}
             >
               {codeLines.map((line, lineIndex) => (
                 <div key={lineIndex} className="flex items-center">
