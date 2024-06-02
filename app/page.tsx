@@ -108,13 +108,44 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="md:h-screen">
+    <div className="md:h-screen md:w-screen">
+      <div
+        className=""
+        style={{
+          backgroundImage: "url('/ccchaos.svg')",
+          width: "100%",
+          height: "100%",
+          position: "fixed",
+          zIndex: "-1",
+          top: "-100", 
+          left: 0,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "-50% 0%",
+          transform: "translateY(20%)",
+        }}
+      ></div>
+
+      <div
+        className=""
+        style={{
+          backgroundImage: "url('/ccchaos.svg')",
+          width: "100%",
+          height: "80%",
+          position: "fixed",
+          zIndex: "-1",
+          top: "30%", // Ajustado al centro verticalmente
+          left: 800,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "50% 50%",
+          transform: "translateY(-50%)", // Ajustado al centro verticalmente
+        }}
+      ></div>
       <div>
         <Header />
       </div>
 
-      <div className="flex justify-center items-center pt-5 md:pt-20 w-full">
-        <div className="container mx-auto px-10">
+      <div className="overflow-hidden flex justify-center items-center pt-5 md:pt-20 w-full">
+        <div className="container mx-auto px-10 overflow-hidden">
           <div className="gap-10 md:flex">
             <motion.div
               initial={{ opacity: 0 }}
@@ -123,7 +154,7 @@ const Home = () => {
               className="md:w-1/2"
             >
               <textarea
-                className="h-40 p-4 border  mb-4 w-full rounded-lg shadow-lg"
+                className="h-40 p-4 border mb-4 w-full rounded-lg shadow-lg"
                 value={inputCode}
                 onChange={(e) => setInputCode(e.target.value)}
                 placeholder="Insert your code here..."
