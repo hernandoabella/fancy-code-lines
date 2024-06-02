@@ -3,12 +3,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import html2canvas from "html2canvas";
 import { RiBrushFill, RiDownload2Fill } from "react-icons/ri";
-import { FaMagic } from "react-icons/fa"; 
-import { motion } from "framer-motion"; 
+import { FaMagic } from "react-icons/fa";
+import { motion } from "framer-motion";
 import Header from "@/app/components/Header";
 
 const Home = () => {
-  const defaultCode = "num1 = 10\nnum2 = 20\nsum = num1 + num2\nprint('The sum of', num1, 'and', num2, 'is:', sum)";
+  const defaultCode =
+    "num1 = 10\nnum2 = 20\nsum = num1 + num2\nprint('The sum of', num1, 'and', num2, 'is:', sum)";
   const [inputCode, setInputCode] = useState(defaultCode);
   const [codeLines, setCodeLines] = useState<JSX.Element[][]>([]);
   const [editorBg, setEditorBg] = useState("bg-gray-800");
@@ -155,7 +156,7 @@ const Home = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
-              className={`whitespace-pre w-full h-60  p-4 rounded-lg ${editorBg} overflow-x-auto max-h-96 overflow-y-auto`}
+              className={`whitespace-pre w-full h-60 p-4 rounded-lg ${editorBg} overflow-x-auto max-h-96 overflow-y-auto`}
             >
               {codeLines.map((line, lineIndex) => (
                 <div key={lineIndex} className="flex items-center">
