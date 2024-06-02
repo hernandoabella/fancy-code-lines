@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import Header from "@/app/components/Header";
 
 const Home = () => {
-  const defaultCode = "Hello World\nHow are you?\ni'm fine";
+  const defaultCode = "num1 = 10\nnum2 = 20\nsum = num1 + num2\nprint('The sum of', num1, 'and', num2, 'is:', sum)";
   const [inputCode, setInputCode] = useState(defaultCode);
   const [codeLines, setCodeLines] = useState<JSX.Element[][]>([]);
   const [editorBg, setEditorBg] = useState("bg-gray-800");
@@ -70,11 +70,14 @@ const Home = () => {
     if (editorRef.current) {
       // Temporarily adjust the editor to capture the full content
       const originalHeight = editorRef.current.style.height;
+      const originalWidth = editorRef.current.style.width;
       editorRef.current.style.height = "auto";
+      editorRef.current.style.width = "100vw";
       editorRef.current.classList.remove(
         "overflow-x-auto",
         "max-h-96",
-        "overflow-y-auto"
+        "overflow-y-auto",
+        "max-w-96"
       );
 
       const canvas = await html2canvas(editorRef.current);
@@ -85,6 +88,7 @@ const Home = () => {
 
       // Revert the editor to its original state
       editorRef.current.style.height = originalHeight;
+      editorRef.current.style.width = originalWidth;
       editorRef.current.classList.add(
         "overflow-x-auto",
         "max-h-96",
@@ -106,7 +110,7 @@ const Home = () => {
       <div>
         <Header />
       </div>
-      <div className="flex justify-center items-center pt-20 w-full">
+      <div className="flex justify-center items-center pt-10 md:pt-20 w-full">
         <div className="container mx-auto px-10">
           <div className="gap-10 md:flex">
             <motion.div
