@@ -8,7 +8,7 @@ const Header = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <div className="text-center pt-10 md:pt-20 mx-auto px-10">
+      <div className="text-center pt-5 md:pt-20 mx-auto px-10">
         <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-slate-200 sm:text-3xl md:text-5xl">
           <span className="block xl:inline">
             <span className="mb-1">Create </span>
