@@ -74,7 +74,7 @@ const Home = () => {
       const originalHeight = editorRef.current.style.height;
       const originalWidth = editorRef.current.style.width;
       editorRef.current.style.height = "auto";
-      editorRef.current.style.width = "100vw";
+      editorRef.current.style.width = "auto"; // Change width to auto to capture full content
       editorRef.current.classList.remove(
         "overflow-x-auto",
         "max-h-96",
@@ -82,7 +82,29 @@ const Home = () => {
         "max-w-96"
       );
 
-      const canvas = await html2canvas(editorRef.current);
+      // Adjust the position of elements for better alignment
+      const lines = editorRef.current.querySelectorAll(".flex");
+      lines.forEach((line) => {
+        const numbers = line.querySelectorAll(".line-number");
+        const elements = line.querySelectorAll(".flex");
+        if (numbers.length && elements.length) {
+          const numbersHeight = numbers[0].clientHeight;
+          elements.forEach((element) => {
+            element.style.marginTop = `${numbersHeight}px`;
+          });
+        }
+      });
+
+      // Wait for a short delay to ensure the DOM updates
+      await new Promise((resolve) => setTimeout(resolve, 100));
+
+      const canvas = await html2canvas(editorRef.current, {
+        scrollX: 0,
+        scrollY: 0,
+        windowWidth: document.documentElement.offsetWidth,
+        windowHeight: document.documentElement.offsetHeight,
+      });
+
       const link = document.createElement("a");
       link.href = canvas.toDataURL("image/png");
       link.download = "code-editor.png";
