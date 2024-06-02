@@ -73,8 +73,8 @@ const Home = () => {
       // Temporarily adjust the editor to capture the full content
       const originalHeight = editorRef.current.style.height;
       const originalWidth = editorRef.current.style.width;
-      editorRef.current.style.height = "auto";
-      editorRef.current.style.width = "auto"; // Change width to auto to capture full content
+      (editorRef.current as HTMLDivElement).style.height = "auto";
+      (editorRef.current as HTMLDivElement).style.width = "auto"; // Change width to auto to capture full content
       editorRef.current.classList.remove(
         "overflow-x-auto",
         "max-h-96",
@@ -84,13 +84,18 @@ const Home = () => {
 
       // Adjust the position of elements for better alignment
       const lines = editorRef.current.querySelectorAll(".flex");
+      const originalMargins = new Map<HTMLElement, string>(); // Map to store original margin values
       lines.forEach((line) => {
         const numbers = line.querySelectorAll(".line-number");
         const elements = line.querySelectorAll(".flex");
         if (numbers.length && elements.length) {
-          const numbersHeight = numbers[0].clientHeight;
+          const numbersHeight = (numbers[0] as HTMLElement).clientHeight;
           elements.forEach((element) => {
-            element.style.marginTop = `${numbersHeight}px`;
+            const originalMargin = (element as HTMLElement).style.marginTop; // Store original margin
+            originalMargins.set(element as HTMLElement, originalMargin); // Store in the map
+            (element as HTMLElement).style.marginTop = `${
+              parseInt(originalMargin) + numbersHeight
+            }px`; // Adjust margin
           });
         }
       });
@@ -105,14 +110,19 @@ const Home = () => {
         windowHeight: document.documentElement.offsetHeight,
       });
 
+      // Revert the position of elements to their original state
+      originalMargins.forEach((originalMargin, element) => {
+        element.style.marginTop = originalMargin;
+      });
+
       const link = document.createElement("a");
       link.href = canvas.toDataURL("image/png");
       link.download = "code-editor.png";
       link.click();
 
       // Revert the editor to its original state
-      editorRef.current.style.height = originalHeight;
-      editorRef.current.style.width = originalWidth;
+      (editorRef.current as HTMLDivElement).style.height = originalHeight;
+      (editorRef.current as HTMLDivElement).style.width = originalWidth;
       editorRef.current.classList.add(
         "overflow-x-auto",
         "max-h-96",
