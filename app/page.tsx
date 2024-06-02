@@ -117,7 +117,7 @@ const Home = () => {
           height: "100%",
           position: "fixed",
           zIndex: "-1",
-          top: "-100", 
+          top: "-100",
           left: 0,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "-50% 0%",
@@ -201,7 +201,9 @@ const Home = () => {
               ))}
             </motion.div>
           </div>
-          <footer className="py-2">by Hernando Abella</footer>
+          <footer className="py-2">
+            <p>by Hernando Abella</p>
+          </footer>
         </div>
       </div>
     </div>
