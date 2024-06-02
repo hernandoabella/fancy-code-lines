@@ -6,6 +6,7 @@ import { RiBrushFill, RiDownload2Fill } from "react-icons/ri";
 import { FaMagic } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Header from "@/app/components/Header";
+import { Button } from "@/components/ui/button";
 
 const Home = () => {
   const defaultCode =
@@ -121,33 +122,33 @@ const Home = () => {
               className="md:w-1/2"
             >
               <textarea
-                className="h-40 p-4 border text-black mb-4 w-full rounded-lg shadow-lg"
+                className="h-40 p-4 border  mb-4 w-full rounded-lg shadow-lg"
                 value={inputCode}
                 onChange={(e) => setInputCode(e.target.value)}
                 placeholder="Insert your code here..."
               ></textarea>
               <div className="flex flex-wrap">
-                <button
+                <Button
                   className="flex items-center bg-slate-800 text-white px-4 py-2 rounded-md mb-4 mr-2"
                   onClick={processCode}
                 >
                   <FaMagic className="mr-2" />
                   <span>Fancy</span>
-                </button>
-                <button
+                </Button>
+                <Button
                   className="flex items-center bg-slate-800 text-white px-4 py-2 rounded-md mb-4 mr-2"
                   onClick={toggleEditorBg}
                 >
                   <RiBrushFill className="mr-2" />
                   <span>Background</span>
-                </button>
-                <button
+                </Button>
+                <Button
                   className="flex items-center bg-slate-800 text-white px-4 py-2 rounded-md mb-4"
                   onClick={downloadEditorAsImage}
                 >
                   <RiDownload2Fill className="mr-2" />
                   <span>Download</span>
-                </button>
+                </Button>
               </div>
             </motion.div>
 
