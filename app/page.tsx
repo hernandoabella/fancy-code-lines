@@ -110,7 +110,7 @@ const Home = () => {
       <div>
         <Header />
       </div>
-      <div className="flex justify-center items-center pt-10 md:pt-20 w-full">
+      <div className="flex justify-center items-center pt-5 md:pt-20 w-full">
         <div className="container mx-auto px-10">
           <div className="gap-10 md:flex">
             <motion.div
