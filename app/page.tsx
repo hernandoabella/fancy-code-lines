@@ -135,13 +135,13 @@ const Home = () => {
                   <FaMagic className="mr-2" />
                   <span>Fancy</span>
                 </Button>
-                <Button
+                <button
                   className="flex items-center bg-slate-800 text-white px-4 py-2 rounded-md mb-4 mr-2"
                   onClick={toggleEditorBg}
                 >
                   <RiBrushFill className="mr-2" />
                   <span>Background</span>
-                </Button>
+                </button>
                 <Button
                   className="flex items-center bg-slate-800 text-white px-4 py-2 rounded-md mb-4"
                   onClick={downloadEditorAsImage}
